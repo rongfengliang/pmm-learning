@@ -19,6 +19,7 @@ services:
     environment: 
     - "DATA_SOURCE_NAME=root:dalongrong@(mysql:3306)/"
   mysql:
+    image: dalongrong/pmm-mysql
     build: 
      context: ./mysql
      dockerfile: Dockerfile
@@ -32,6 +33,7 @@ services:
       MYSQL_PASSWORD: dalongrong
       TZ: Asia/Shanghai
   postgres:
+    image: dalongrong/pmm-postgres
     build: 
      context: ./pg
      dockerfile: Dockerfile
