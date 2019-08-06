@@ -1,5 +1,18 @@
 version: "3"
 services: 
+  proxysql-metrics:
+    build: 
+      context: ./proxysql
+      dockerfile: Dockerfile
+    image: dalongrong/proxysql-metrics
+  proxysql:
+    image: proxysql/proxysql:2.0.6
+    volumes: 
+    - "./proxysql.cnf:/etc/proxysql.cnf"
+    - "./db:/var/lib/proxysql"
+    ports:
+    - "6033:6033"
+    - "6032:6032"
   pgloader-mysql:
     image: dimitri/pgloader
     command: pgloader mysql://root:dalongrong@mysql/gogs postgresql://postgres:dalong@postgres:5432/appdemo

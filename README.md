@@ -21,7 +21,14 @@ for postgres
 
 docker-compose exec postgres sh /root/initpmm.sh
 
+
+for proxysql
+
+docker-compose exec proxysql-metrics sh /root/initpmm.sh
+
 ```
+
+
 
 ## view result
 
